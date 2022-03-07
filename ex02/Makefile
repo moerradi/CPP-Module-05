@@ -1,6 +1,6 @@
-NAME=Form
+NAME=Forms
 FLAGS=-Wall -Wextra -Werror
-SRCS=Bureaucrat.cpp Form.cpp main.cpp
+SRCS=Bureaucrat.cpp Form.cpp main.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp PresidentialPardonForm.cpp
 
 all: $(NAME)
 
@@ -9,6 +9,7 @@ $(NAME): $(SRCS)
 
 clean:
 	rm -rf *.o
+	rm -rf *_shrubbery
 	
 fclean: clean
 	rm -rf $(NAME)

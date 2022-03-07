@@ -10,7 +10,7 @@ class Form {
 		Form(Form const & src);
 
 		Form & operator=(Form const & rhs);
-		~Form();
+		virtual ~Form();
 
 		std::string		getName() const;
 		bool			getSigned() const;
@@ -18,6 +18,7 @@ class Form {
 		int				getExecGrade() const;
 
 		void			beSigned(Bureaucrat const & b);
+		virtual void	execute(Bureaucrat const & executor) const = 0;
 
 		class GradeTooHighException : public std::exception {
 			public:
@@ -25,6 +26,11 @@ class Form {
 		};
 
 		class GradeTooLowException : public std::exception {
+			public:
+				virtual const char * what() const throw();
+		};
+		
+		class NotSignedException : public std::exception {
 			public:
 				virtual const char * what() const throw();
 		};

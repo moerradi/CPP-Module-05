@@ -2,10 +2,6 @@
 
 int main()
 {
-	// Bureaucrat	b("Bob", 1);
-	// Bureaucrat	b2;
-	// b2=b;
-	// std::cout << b2 << std::endl;
 	try
 	{
 		Bureaucrat b("Bob", 1);

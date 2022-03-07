@@ -63,3 +63,26 @@ void Bureaucrat::decrementGrade(void) {
 	return ;
 }
 
+void Bureaucrat::signForm(Form &f) {
+	if (f.getSigned())
+		std::cout << _name << " cannot sign " << f.getName() << " because it is already signed." << std::endl;
+	else if (_grade > f.getSignGrade())
+		std::cout << _name << " cannot sign " << f.getName() << " because his grade is too low." << std::endl;
+	else {
+		f.beSigned(*this);
+		std::cout << _name << " signs " << f.getName() << "." << std::endl;
+	}
+	return ;
+}
+
+void Bureaucrat::executeForm(Form const &f) {
+	if (!f.getSigned())
+		std::cout << _name << " cannot execute " << f.getName() << " because it is not signed." << std::endl;
+	else if (_grade > f.getExecGrade())
+		std::cout << _name << " cannot execute " << f.getName() << " because his grade is too low." << std::endl;
+	else {
+		std::cout << _name << " executes " << f.getName() << "." << std::endl;
+		f.execute(*this);
+	}
+	return ;
+}
